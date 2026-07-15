@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Resume Preview</title>
+
+<link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body>
+
+<div class="resume-preview">
+
+<h1><%= cv.personalInfo.fullname %></h1>
+
+<p><%= cv.personalInfo.email %></p>
+
+<p><%= cv.personalInfo.phone %></p>
+
+<p><%= cv.personalInfo.linkedin %></p>
+
+<p><%= cv.personalInfo.github %></p>
+
+
+
+<hr>
+
+<h2>Education</h2>
+
+<p><%= cv.education.degree %></p>
+
+<p><%= cv.education.college %></p>
+
+<h2>Skills</h2>
+
+<p><%= cv.skills %></p>
+
+</div>
+
+</body>
+
+</html>

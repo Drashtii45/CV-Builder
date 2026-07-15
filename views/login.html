@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | CV</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-body">
+
+    <div class="auth-container">
+
+        <div class="auth-card">
+            
+            <a href="/" class="home-btn">← Go to Home</a> 
+
+            <h1>Welcome Back 👋</h1>
+
+            <p>Login to continue building your CV.</p>
+
+            <form action="/login" method="POST">
+
+                <input
+                type="email"
+                name="email"
+                placeholder="Enter Email"
+                required>
+
+                <input
+                type="password"
+                name="password"
+                placeholder="Enter Password"
+                required>
+
+                <button type="submit">
+                    Login
+                </button>
+
+            </form>
+
+            <p class="bottom-text">
+                Don't have an account?
+                <a href="/register">Register</a>
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

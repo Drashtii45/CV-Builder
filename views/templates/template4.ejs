@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title><%= cv.title %></title>
+
+<link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body class="template4-body">
+    <% if (!isPreview && !isDownload) { %>
+
+<div class="resume-actions no-print">
+
+    <a href="/download/<%= cv._id %>" class="download-btn">
+    Download PDF
+</a>
+
+    <a href="/templates/<%= cv._id %>" class="change-template-btn">
+        Change Template
+    </a>
+
+</div>
+
+<% } %>
+
+<div class="resume4">
+
+<header>
+
+<h1><%= cv.personalInfo.fullname %></h1>
+
+<p>  
+     <%= cv.title %> 
+</p>
+
+</header>
+
+<div class="grid2">
+
+<div>
+
+<h2>CONTACT</h2>
+
+<p><%= cv.personalInfo.email %></p>
+
+<p><%= cv.personalInfo.phone %></p>
+
+<p><%= cv.personalInfo.linkedin %></p>
+
+<p><%= cv.personalInfo.github %></p>
+
+</div>
+
+<div>
+
+<h2>EDUCATION</h2>
+
+<h3><%= cv.education.college %></h3>
+
+<p><%= cv.education.degree %></p>
+
+<p>CGPA : <%= cv.education.cgpa %></p>
+
+</div>
+
+</div>
+
+<section>
+
+<h2>SKILLS</h2>
+
+<div class="skill-list">
+
+<% cv.skills.split(",").forEach(skill=>{ %>
+
+<span><%= skill.trim() %></span>
+
+<% }) %>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>PROJECTS</h2>
+
+<p>
+
+<%= cv.projects || "No Projects Added" %>
+
+</p>
+
+</section>
+
+<section>
+
+<h2>EXPERIENCE</h2>
+
+<p>
+
+<%= cv.experience || "No Experience Added" %>
+
+</p>
+
+</section>
+
+
+</div>
+
+</body>
+
+</html>

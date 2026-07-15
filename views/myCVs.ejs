@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>My CVs</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body class="mycv-body">
+
+<div class="mycv-container">
+
+    <div class="mycv-header">
+
+        <div>
+
+            <h1>My CVs</h1>
+
+            <p>
+                <%= cvs.length %> / 3 CVs Used
+            </p>
+
+        </div>
+
+        <% if(cvs.length < 3){ %>
+
+            <a href="/create-cv" class="create-cv-btn">
+                + Create New CV
+            </a>
+
+        <% } else { %>
+
+            <button class="disabled-btn" disabled>
+                Maximum Limit Reached
+            </button>
+
+        <% } %>
+
+    </div>
+
+    <% if(cvs.length===0){ %>
+
+        <div class="empty-state">
+
+            <h2>No CVs Yet</h2>
+
+            <p>Create your first professional resume.</p>
+
+        </div>
+
+    <% } %>
+
+    <% cvs.forEach(cv=>{ %>
+
+    <div class="cv-card">
+
+        <div class="cv-left">
+
+            <h2><%= cv.title %></h2>
+
+            <p class="template-name">
+
+                <% if(cv.template==1){ %>
+                    Classic Professional
+                <% } %>
+
+                <% if(cv.template==2){ %>
+                    Modern Minimal
+                <% } %>
+
+                <% if(cv.template==3){ %>
+                    Executive
+                <% } %>
+
+                <% if(cv.template==4){ %>
+                    Modern Sidebar
+                <% } %>
+
+            </p>
+
+
+        </div>
+
+        <div class="cv-actions">
+
+            <a href="/edit-cv/<%= cv._id %>" class="edit-btn">
+                Edit
+            </a>
+
+           <a
+href="/delete-cv/<%= cv._id %>"
+class="delete-btn"
+onclick="return confirm('Are you sure you want to delete this CV?')">
+
+Delete
+
+</a>
+
+        </div>
+
+    </div>
+
+    <% }) %>
+
+</div>
+
+</body>
+
+</html>

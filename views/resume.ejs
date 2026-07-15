@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Your Resume</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body>
+
+<div class="resume-ready">
+
+    <h1>🎉 Resume Ready!</h1>
+
+    <p>Your resume has been generated successfully.</p>
+
+    <h2><%= cv.title %></h2>
+
+    <p>
+
+        Selected Template :
+
+        <strong>
+
+            Template <%= cv.template %>
+
+        </strong>
+
+    </p>
+
+    <div class="resume-buttons">
+
+    <a href="/download/<%= cv._id %>" class="download-btn">
+    Download PDF
+</a>
+
+        <a href="/dashboard">
+
+            Back to Dashboard
+
+        </a>
+
+        <a href="/templates/<%= cv._id %>">
+
+            Change Template
+
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

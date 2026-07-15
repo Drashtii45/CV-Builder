@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create CV</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="cv-body">
+
+<div class="cv-container">
+
+<h1>
+    <%= isEdit ? "Update Your CV ✏️" : "Create Your Professional CV 🚀" %>
+</h1>
+
+<form action="<%= isEdit ? '/edit-cv/' + cv._id : '/create-cv' %>" method="POST">
+            <div class="cv-section">
+
+    <h2>CV Title</h2>
+
+   <input
+type="text"
+name="title"
+placeholder="Enter CV Title (e.g. Software Engineer Resume)"
+value="<%= cv ? cv.title : '' %>"
+required>
+</div>
+
+        <!-- Personal Information -->
+
+        <div class="cv-section">
+            <h2>Personal Information</h2>
+
+<input
+type="text"
+name="fullname"
+placeholder="Full Name"
+value="<%= cv ? cv.personalInfo.fullname : '' %>"
+required>
+
+<input
+type="email"
+name="email"
+placeholder="Email Address"
+value="<%= cv ? cv.personalInfo.email : '' %>"
+required>
+
+<input
+type="text"
+name="phone"
+placeholder="Phone Number"
+value="<%= cv ? cv.personalInfo.phone : '' %>"
+required>
+
+<input
+type="text"
+name="linkedin"
+placeholder="LinkedIn Profile"
+value="<%= cv ? cv.personalInfo.linkedin : '' %>">
+
+<input
+type="text"
+name="github"
+placeholder="GitHub Profile"
+value="<%= cv ? cv.personalInfo.github : '' %>">
+        </div>
+
+        <!-- Education -->
+
+        <div class="cv-section">
+            <h2>Education</h2>
+
+<input
+type="text"
+name="college"
+placeholder="College Name"
+value="<%= cv ? cv.education.college : '' %>">
+
+<input
+type="text"
+name="degree"
+placeholder="Degree"
+value="<%= cv ? cv.education.degree : '' %>">
+
+<input
+type="text"
+name="cgpa"
+placeholder="CGPA"
+value="<%= cv ? cv.education.cgpa : '' %>">        </div>
+
+        <!-- Skills -->
+
+        <div class="cv-section">
+            <h2>Skills</h2>
+
+           <textarea
+name="skills"
+placeholder="HTML, CSS, JavaScript, Node.js, MongoDB"><%= cv ? cv.skills : '' %></textarea>
+
+        </div>
+
+        <!-- Projects -->
+
+        <div class="cv-section">
+            <h2>Projects</h2>
+
+        <textarea
+name="projects"
+placeholder="Describe your projects"><%= cv ? cv.projects : '' %></textarea> 
+
+        </div>
+
+        <!-- Experience -->
+
+        <div class="cv-section">
+            <h2>Experience</h2>
+
+            <textarea
+name="experience"
+placeholder="Internships, Freelance Work, etc"><%= cv ? cv.experience : '' %></textarea>
+
+        </div>
+
+      <button class="cv-btn" type="submit">
+    <%= isEdit ? "Update CV" : "Save CV" %>
+</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

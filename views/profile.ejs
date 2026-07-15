@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="dashboard-body">
+
+<div class="dashboard-container">
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <h2>CV Builder</h2>
+
+        <ul>
+
+            <li><a href="/dashboard">🏠 Dashboard</a></li>
+
+            <li><a href="/my-cvs">📄 My CVs</a></li>
+
+            <li><a href="/create-cv">➕ Create CV</a></li>
+
+            <li class="active"><a href="/profile">👤 Profile</a></li>
+
+            <li><a href="/logout">🚪 Logout</a></li>
+
+        </ul>
+
+    </div>
+
+    <!-- Main Content -->
+
+    <div class="dashboard-content">
+
+        <div class="profile-card">
+
+            <div class="profile-avatar">
+                👤
+            </div>
+
+            <h1><%= user.name %></h1>
+
+            <p class="profile-email">
+                <%= user.email %>
+            </p>
+
+            <div class="profile-info">
+
+                <div class="info-box">
+
+                    <h3>Total CVs</h3>
+
+                    <span><%= totalCVs %> / 3</span>
+
+                </div>
+
+                <div class="info-box">
+
+                    <h3>Total Downloads</h3>
+
+                    <span><%= downloads %></span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
