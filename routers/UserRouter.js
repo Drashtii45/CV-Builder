@@ -84,7 +84,9 @@ userRouter.get("/preview/template1/:id", async (req, res) => {
     }
   res.render("templates/template1", {
         cv,
-        isPreview: true
+        isPreview: true,
+       isDownload: false
+
     });
 });
 
@@ -96,7 +98,9 @@ userRouter.get("/preview/template2/:id", async (req, res) => {
     }
   res.render("templates/template2", {
         cv,
-        isPreview: true
+        isPreview: true,
+         isDownload: false
+
     });});
 
 
@@ -107,7 +111,9 @@ userRouter.get("/preview/template3/:id", async (req, res) => {
     }
   res.render("templates/template3", {
         cv,
-        isPreview: true
+        isPreview: true,
+         isDownload: false
+
     });});
 
 
@@ -118,7 +124,9 @@ userRouter.get("/preview/template4/:id", async (req, res) => {
     }
   res.render("templates/template4", {
         cv,
-        isPreview: true
+        isPreview: true,
+        isDownload: false
+
     });
 });
 
@@ -160,6 +168,10 @@ userRouter.get("/print/:id", async (req, res) => {
     if (!cv) {
         return res.send("CV Not Found");
     }
+
+
+    cv.downloads += 1;
+    await cv.save();
 
   res.render(`templates/template${cv.template}`, {
         cv,
