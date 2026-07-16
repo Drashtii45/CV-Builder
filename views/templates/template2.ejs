@@ -10,16 +10,62 @@
 
 <link rel="stylesheet" href="/style.css">
 
+<style>
+
+@page{
+    size:A4;
+    margin:10mm;
+}
+
+*{
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+}
+
+@media print{
+
+.no-print{
+display:none !important;
+}
+
+body{
+margin:0;
+padding:0;
+background:white;
+}
+
+.resume,
+.resume2,
+.resume3,
+.resume4{
+
+box-shadow:none;
+margin:0 auto;
+
+}
+
+section{
+page-break-inside:avoid;
+}
+
+}
+
+</style>
+
+
 </head>
 
 <body class="template2-body">
 
+    <input type="hidden" id="isDownload" value="<%= isDownload %>">
+
+
 <% if (!isPreview && !isDownload) { %>
 
-<div class="resume-actions no-print">
+<div class="resume-actions no-print" class="change-template-btn">
 
- <a href="/download/<%= cv._id %>" class="download-btn">
-    Download PDF
+<a href="/print/<%= cv._id %>" target="_blank">
+Download PDF
 </a>
 
     <a href="/templates/<%= cv._id %>" class="change-template-btn">
@@ -130,6 +176,24 @@
     </main>
 
 </div>
+
+<script>
+
+window.addEventListener("load", function () {
+
+    const input = document.getElementById("isDownload");
+
+    if (input && input.value === "true") {
+
+        setTimeout(() => {
+            window.print();
+        }, 300);
+
+    }
+
+});
+
+</script>
 
 </body>
 </html>

@@ -9,16 +9,22 @@
 <body>
 
 <header>
-    <nav>
-        <h2>CV-Builder</h2>
+<nav>
 
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="features">Features</a></li>
-            <li><a href="about">About</a></li>
-            <li><a href="login">Login</a></li>
-        </ul>
-    </nav>
+    <h2>CV-Builder</h2>
+
+    <div class="menu-toggle" id="menu-toggle">
+        ☰
+    </div>
+
+    <ul id="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/features">Features</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/login">Login</a></li>
+    </ul>
+
+</nav>
 </header>
 
 <section class="hero">
@@ -75,6 +81,17 @@
     <p>© 2026 CV-Builder</p>
 
 </footer>
+
+<script>
+
+const menuToggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+
+menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+});
+
+</script>
 
 </body>
 </html>

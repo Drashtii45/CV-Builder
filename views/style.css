@@ -1871,34 +1871,16 @@ section h2{
 /* ==========================================
             RESPONSIVE DESIGN
 ========================================== */
+/* ==========================
+   Responsive Navbar
+========================== */
 
-/* ---------- Tablets ---------- */
+.menu-toggle{
 
-@media (max-width:992px){
-
-    .dashboard-container{
-        flex-direction: column;
-    }
-
-    .sidebar{
-        width:100%;
-        height:auto;
-        position:relative;
-        padding:20px;
-    }
-
-    .dashboard-content{
-        margin-left:0;
-        padding:30px;
-    }
-
-    .cards{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .template-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
+    display:none;
+    font-size:32px;
+    cursor:pointer;
+    font-weight:bold;
 
 }
 
@@ -1907,6 +1889,55 @@ section h2{
 
 @media (max-width:768px){
 
+    nav{
+
+    position:relative;
+    padding:18px 6%;
+
+}
+
+.menu-toggle{
+
+    display:block;
+
+}
+
+nav ul{
+
+    position:absolute;
+
+    top:75px;
+
+    left:0;
+
+    width:100%;
+
+    background:white;
+
+    display:none;
+
+    flex-direction:column;
+
+    text-align:center;
+
+    gap:0;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.1);
+
+}
+
+nav ul.show{
+
+    display:flex;
+
+}
+
+nav ul li{
+
+    padding:18px 0;
+    border-bottom:1px solid #eee;
+
+}
     h1{
         font-size:30px;
     }
@@ -1996,6 +2027,27 @@ section h2{
     .download-btn,
     .change-template-btn{
         width:100%;
+    }
+
+}
+
+@media print {
+
+    html,
+    body {
+        background: white !important;
+    }
+
+    .resume-container,
+    .resume,
+    .resume2,
+    .resume3,
+    .resume4 {
+        width: 100%;
+        margin: 0;
+        padding: 20px;
+        box-shadow: none !important;
+        background: white !important;
     }
 
 }

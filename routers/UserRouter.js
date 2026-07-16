@@ -1,4 +1,3 @@
-const puppeteer = require('puppeteer');
 const path = require('path');
 
 const express =  require('express');
@@ -175,45 +174,7 @@ userRouter.get("/my-cvs" , auth , async(req,res)=>{
     });
 
     res.render("myCVs" , { cvs }) ;
-})
 
-userRouter.get("/download/:id",async(req,res)=>{
-    const cv = await Cv.findById(req.params.id);
-
-    cv.downloads += 1;
-    await cv.save();
-
-    if(!cv){
-        return res.send("CV not found");
-    }
-
-const browser = await puppeteer.launch({
-    headless: true,
-    args: [
-        "--no-sandbox",
-        "--disable-setuid-sandbox"
-    ]
-});
-    const page = await browser.newPage();
-
-  const url = `${req.protocol}://${req.get("host")}/resume/${cv._id}`;
-
-await page.goto(url, {
-    waitUntil: "networkidle0"
-});
-
-    const pdf = await page.pdf({
-        format : "A4",
-        printBackground: true ,
-        preferCSSPageSize : true 
-    });
-    await browser.close();
-
-    res.set({
-        "Content-Type" : "application/pdf" ,
-        "Content-Disposition": `attachment; filename="${cv.title}.pdf"`
-     });
-     res.send(pdf);
 })
 
 userRouter.get("/delete-cv/:id" , async(req,res)=>{
